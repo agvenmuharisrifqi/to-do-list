@@ -48,7 +48,9 @@ function Today(props){
                             </div>
                             <div className="flex gap-x-2">
                                 <i className='bx bx-star text-xl text-slate-500 transition-all duration-200 cursor-pointer' title="Make Tasks Important"></i>
-                                <i className='bx bx-trash text-xl text-red-500 transition-all duration-200 cursor-pointer' title="Delete This Task" onClick={deleteData(item.id)}></i>
+                                <button onClick={() => deleteData(item.id)}>
+                                    <i className='bx bx-trash text-xl text-red-500 transition-all duration-200 cursor-pointer' title="Delete This Task" ></i>
+                                </button>
                             </div>
                         </div>
                     )
