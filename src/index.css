@@ -1,13 +1,116 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main {
+  background-image: url('assets/img/background4.jpg');
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Navbar */
+.navbar {
+  @apply z-20 relative p-4 rounded-xl flex justify-between items-center;
+  background-color: whitesmoke;
+}
+
+.nav-item {
+  @apply py-2;
+}
+
+.nav-link {
+  @apply px-4 py-2 rounded-xl hover:bg-green-200 hover:text-green-900;
+}
+
+.nav-wrapper.active {
+  @apply pt-24 pb-4 -z-20 text-center rounded-xl flex absolute top-0 left-0 flex-col w-full;
+  background-color: whitesmoke;
+}
+
+.search-bar {
+  @apply  flex items-center justify-center absolute top-0 left-0 right-0 bottom-0 rounded-xl scale-0;
+  transition: all 1s;
+  background-color: whitesmoke;
+}
+
+.search-bar.active {
+  @apply scale-100;
+  transition: all 1s;
+}
+
+.search-wrapper {
+  @apply flex rounded-xl shadow px-4 w-11/12 items-center;
+  background-color: rgba(52, 211, 153, .2);
+}
+
+.search-input {
+  @apply bg-transparent p-3 font-primary text-xl flex-auto;
+}
+
+.search-input:focus {
+  @apply outline-none;
+}
+
+/* Button Add Task */
+.add-task {
+  @apply w-full py-2 border border-white rounded;
+  background-color: rgba(255,255,255,.6);
+}
+
+.add-task:hover {
+  background-color: rgba(255,255,255,.8);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5; 
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+/* Checked Task */
+.check {
+  border: 1px solid #9e9e9e;
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.check.active {
+  border: none;
+  background-color: red;
+}
+
+.check.active ~ div h3, .check.active ~ div input, .check.active ~ div span {
+  @apply line-through;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.modal-wrapper {
+  @apply h-screen w-screen flex items-center justify-center;
+  background-color: rgba(100, 116, 139, .8);
 }
