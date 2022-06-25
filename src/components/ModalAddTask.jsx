@@ -6,6 +6,8 @@ export function ModalAddTask(props) {
     }
 
     const addTask = () => {
+        task["key"] = props.id;
+        props.setid(props.id + 1)
         props.onClick(false);
         props.settask([...props.task, task]);
     }
