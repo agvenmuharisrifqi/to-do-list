@@ -3,8 +3,6 @@ import SearchBar from "./SearchBar";
 import { ModalSigIn } from "./ModalSignIn";
 
 function Nav(props) {
-    const [name, setName] = useState("");
-    const [status, setStatus] = useState("");
     const [navbar, setNavbar] = useState(false);
     const [searchBar, setSearchBar] = useState(false);
     const [sigIn, setSignIn] = useState(false)
@@ -30,18 +28,6 @@ function Nav(props) {
         setNavbar(false);
     }
 
-    useEffect(() => {
-        const checkName = localStorage.getItem("name") ? true : false;
-        if (checkName) {
-            fetch(process.env.REACT_APP_URL)
-                .then(res => console.log(res))
-                .catch(err => console.log(err))
-            setName(localStorage.getItem("name"));
-        } else {
-            setSignIn(true)
-        }
-    }, [])
-
     return (
         <nav className="navbar">
             <div className="account flex gap-4 items-center">
@@ -50,10 +36,10 @@ function Nav(props) {
                 <div>
                     <a href="/" className="font-bold text-lg hover:text-green-900"
                         title="Double Click To Edit Your Name">
-                        {name ? name : "Type your name"}
+                        {/* {name ? name : "Type your name"} */}
                     </a>
                     <p className="text-slate-500" title="Max 20 Characters">
-                        {status ? status : "Type your status"}
+                        {/* {status ? status : "Type your status"} */}
                     </p>
                     {/* Sedang di Jupiter 🟠 */}
                 </div>
@@ -95,7 +81,7 @@ function Nav(props) {
             </ul>
             {/* Search Bar */}
             <SearchBar active={searchBar} onClick={setSearchBar} />
-            <ModalSigIn signin={sigIn} onClick={setSignIn} name={setName} status={setStatus} />
+            {/* <ModalSigIn signin={sigIn} onClick={setSignIn} name={setName} status={setStatus} /> */}
         </nav>
     )
 }

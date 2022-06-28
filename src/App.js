@@ -1,27 +1,17 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import './App.css';
+import ModalSigIn from './components/ModalSignIn';
 import Nav from './components/Nav';
 import Today from './pages/Today';
 import { ModalAddTask } from './components/ModalAddTask';
-import './App.css';
+import { BASE_URL } from './assets/js/variable';
 
 function App() {
-  const [task, setTask] = useState([]);
-  const [id, setId] = useState(0);
-  const [modalTask, setModalTask] = useState(false);
-  document.title = "TO DO LIST";
-
+  const [sigIn, setSignIn] = useState(true)
   return (
     <main className='main'>
       <div className="px-4 py-8 flex flex-col justify-between h-full sm:container">
-        <Nav />
-        <Today task={task} settask={setTask}/>
-        <div>
-            <button className="add-task" onClick={() => setModalTask(true)}>
-                <i className="bx bx-plus"></i>
-                Add Task
-            </button>
-        </div>
-        <ModalAddTask id={id} setid={setId} addtask={modalTask} onClick={setModalTask} task={task} settask={setTask} />
+        <ModalSigIn signin={sigIn} onClick={setSignIn}/>
       </div>
     </main>
   );
