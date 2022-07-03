@@ -4,7 +4,7 @@ function SearchBar(props) {
     const navigate = useNavigate();
     const closeButton = () => {
         props.onClick(false)
-        navigate("/")
+        navigate("/to-do-list")
     }
     return (
         <div className={props.active ? "search-bar active" : "search-bar"}>

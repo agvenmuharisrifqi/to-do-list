@@ -33,7 +33,7 @@ function Nav(props) {
                             height="50" width="50" className="rounded-full hidden xs:block" />
                         <div>
                             <Link
-                                to={"/"}
+                                to={"/to-do-list"}
                                 className="font-bold text-lg hover:text-green-900">
                                 {dataUser?.state?.name ? dataUser.state.name : "Type your name"}
                             </Link>
@@ -49,7 +49,7 @@ function Nav(props) {
                         <li className="nav-item">
                             <NavLink
                                 className={({ isActive }) => (isActive ? "nav-link active" : 'nav-link')}
-                                to={"/"}>
+                                to={"/to-do-list"}>
                                 <i className='bx bx-calendar-check text-stone-400 transition-all duration-200 mr-1'></i>
                                 Today
                             </NavLink>
@@ -57,7 +57,7 @@ function Nav(props) {
                         <li className="nav-item">
                             <NavLink
                                 className={({ isActive }) => (isActive ? "nav-link active" : 'nav-link')}
-                                to={"/all"}>
+                                to={"/to-do-list/all"}>
                                 <i className='bx bx-edit text-cyan-400 transition-all duration-200 mr-1'></i>
                                 All
                             </NavLink>
@@ -65,7 +65,7 @@ function Nav(props) {
                         <li className="nav-item">
                             <NavLink
                                 className={({ isActive }) => (isActive ? "nav-link active" : 'nav-link')}
-                                to={"/important"}>
+                                to={"/to-do-list/important"}>
                                 <i className='bx bx-star text-amber-400 transition-all duration-200 mr-1'></i>
                                 Important
                             </NavLink>
@@ -73,7 +73,7 @@ function Nav(props) {
                         <li className="nav-item">
                             <NavLink
                                 className={({ isActive }) => (isActive ? "nav-link active" : 'nav-link')}
-                                to={"/completed"}>
+                                to={"/to-do-list/completed"}>
                                 <i className='bx bx-check-circle text-red-400 transition-all duration-200 mr-1'></i>
                                 Completed
                             </NavLink>
@@ -81,7 +81,7 @@ function Nav(props) {
                         <li className="nav-item" onClick={(e) => activeSearchBar(e)}>
                             <NavLink
                                 className={({ isActive }) => (isActive ? "nav-link active" : 'nav-link')}
-                                to={"/search"} >
+                                to={"/to-do-list/search"} >
                                 <i className='bx bx-search text-fuchsia-400 transition-all duration-200 mr-1'></i>
                                 Search
                             </NavLink>

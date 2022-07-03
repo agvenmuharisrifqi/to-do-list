@@ -46,13 +46,13 @@ function App() {
     <DataUSer.Provider value={{ state, dispatch }}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Nav signIn={signIn} setSignIn={setSignIn} />}>
+          <Route path="/to-do-list" element={<Nav signIn={signIn} setSignIn={setSignIn} />}>
             <Route index element={<PageToday />} />
-            <Route path="all" element={<PageAll />} />
-            <Route path="important" element={<PageImportant />} />
-            <Route path="completed" element={<PageCompleted />} />
-            <Route path="search" element={<PageSearch />} />
-            <Route path="*" element={<Page404 />} />
+            <Route path="/to-do-list/all" element={<PageAll />} />
+            <Route path="/to-do-list/important" element={<PageImportant />} />
+            <Route path="/to-do-list/completed" element={<PageCompleted />} />
+            <Route path="/to-do-list/search" element={<PageSearch />} />
+            <Route path="/to-do-list/*" element={<Page404 />} />
           </Route>
         </Routes>
       </BrowserRouter>
