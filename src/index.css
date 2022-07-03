@@ -17,11 +17,15 @@
 }
 
 .nav-item {
-  @apply py-2;
+    @apply py-2;
 }
 
 .nav-link {
   @apply px-4 py-2 rounded-xl hover:bg-green-200 hover:text-green-900;
+}
+
+.nav-link.active {
+  @apply bg-green-200 text-green-900;
 }
 
 .nav-wrapper.active {
@@ -96,10 +100,6 @@
 .check.active {
   border: none;
   background-color: red;
-}
-
-.check.active ~ div h3, .check.active ~ div input, .check.active ~ div span {
-  @apply line-through;
 }
 
 /* Modal */

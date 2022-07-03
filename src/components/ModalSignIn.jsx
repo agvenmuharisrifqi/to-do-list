@@ -39,14 +39,17 @@ function ModalSigIn(props) {
             body: formData,
         })
             .then(response => response.json())
-            .then(result => sessionStorage.setItem("token", result.token.token))
+            .then(result => {
+                sessionStorage.setItem("token", result.token.token);
+                props.setSignIn(false)
+            })
             .catch(error => console.log(error))
     }
 
     return (
         <div
             className="modal">
-            {props.signin && (
+            {props.signIn && (
                 <div
                     className="modal-wrapper">
                     <div
