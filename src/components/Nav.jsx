@@ -10,7 +10,7 @@ function Nav(props) {
 
     const [navbar, setNavbar] = useState(false);
     const [searchBar, setSearchBar] = useState(false);
-    const [addTask, setAddTask] = useState(false)
+    const [addTask, setAddTask] = useState(false);
 
 
     const toggleNavbar = (e) => {

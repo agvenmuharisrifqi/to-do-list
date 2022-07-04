@@ -3,12 +3,14 @@ import { createContext } from "react";
 export const DataUSer = createContext();
 
 export const initialState = {
+    search_word: "",
     name: "",
     status: "",
     todo: []
 }
 
 const actions = {
+    UPDATE_SEARCH_WORD: "UPDATE_SEARCH_WORD",
     UPDATE_NAME: "UPDATE_NAME",
     UPDATE_STATUS: "UPDATE_STATUS",
     ADD_TODO_ITEM: "ADD_TODO_ITEM",
@@ -21,11 +23,19 @@ const actions = {
 //Reducer to Handle Actions
 export const reducer = (state, action) => {
     switch (action.type) {
+        case actions.UPDATE_SEARCH_WORD:
+            return state = {
+                search_word : action.search_word,
+                name: state.name,
+                status: state.status,
+                todo: state.todo
+            }
         /**
          * Update Name
          */
         case actions.UPDATE_NAME: {
             return state = {
+                search_word : state.search_word,
                 name: action.name,
                 status: state.status,
                 todo: state.todo
@@ -36,6 +46,7 @@ export const reducer = (state, action) => {
          */
         case actions.UPDATE_STATUS: {
             return state = {
+                search_word : state.search_word,
                 name: state.name,
                 status: action.status,
                 todo: state.todo
@@ -46,6 +57,7 @@ export const reducer = (state, action) => {
          */
         case actions.INITIALIZATION_TODO_ITEM: {
             return state = {
+                search_word : state.search_word,
                 name: state.name,
                 status: state.status,
                 todo: action.todo
@@ -56,6 +68,7 @@ export const reducer = (state, action) => {
          */
         case actions.ADD_TODO_ITEM: {
             return state = {
+                search_word : state.search_word,
                 name: state.name,
                 status: state.status,
                 todo: [...state.todo, action.todo]
@@ -68,6 +81,7 @@ export const reducer = (state, action) => {
             const filteredTodoItem = state.todo.filter(todoItem => todoItem.id !== action.id);
             console.log(filteredTodoItem)
             return state = {
+                search_word : state.search_word,
                 name: state.name,
                 status: state.status,
                 todo: filteredTodoItem
@@ -85,6 +99,7 @@ export const reducer = (state, action) => {
                 }
             })
             return state = {
+                search_word : state.search_word,
                 name: state.name,
                 status: state.status,
                 todo: updateComplete
@@ -108,6 +123,7 @@ export const reducer = (state, action) => {
              * but it doesn't work and have to use return as below or in other words have to replace the old state with the new one
              */
             return state = {
+                search_word : state.search_word,
                 name: state.name,
                 status: state.status,
                 todo: updateImportant

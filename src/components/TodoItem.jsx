@@ -5,18 +5,22 @@ import ModalDeleteTask from './ModalDeleteTask';
 import NoTask from './NoTask';
 
 function TodoItem(props) {
-    const [dataTask, setDataTask] = useState([])
-    const [deleteTask, setDeleteTask] = useState(false)
     const dataUser = useContext(DataUSer);
+    const [dataTask, setDataTask] = useState([]);
+    const [deleteTask, setDeleteTask] = useState(false);
 
     useEffect(() => {
         const data = dataUser.state.todo.filter(todoItem => {
+            console.log(dataUser.state.search_word === "")
+            let searchWord = new RegExp(dataUser.state.search_word, "gi");
             if (props.filter === "today" && changeDate(todoItem.date) === "Today") {
                 return todoItem;
             } else if (props.filter === "important" && todoItem.important) {
                 return todoItem;
             } else if (props.filter === "completed" && todoItem.completed) {
                 return todoItem;
+            } else if (props.filter === "search" && todoItem.activity.match(searchWord)) {
+                return todoItem
             } else if (props.filter === "all") {
                 return todoItem
             }
