@@ -11,7 +11,6 @@ function TodoItem(props) {
 
     useEffect(() => {
         const data = dataUser.state.todo.filter(todoItem => {
-            console.log(dataUser.state.search_word === "")
             let searchWord = new RegExp(dataUser.state.search_word, "gi");
             if (props.filter === "today" && changeDate(todoItem.date) === "Today") {
                 return todoItem;
